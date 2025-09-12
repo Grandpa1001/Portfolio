@@ -1,9 +1,7 @@
 import React from "react";
 import { Route, Routes} from "react-router-dom";
 import withRouter from "../hooks/withRouter"
-import { Home } from "../pages/home";
-import { Portfolio } from "../pages/portfolio";
-import { About } from "../pages/about";
+import { Landing } from "../pages/landing";
 import { Socialicons } from "../components/socialicons";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
@@ -19,10 +17,8 @@ const AnimatedRoutes = withRouter(({ location }) => (
       unmountOnExit
     >
       <Routes location={location}>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="*" element={<Home />} />
+        <Route exact path="/" element={<Landing />} />
+        <Route path="*" element={<Landing />} />
       </Routes>
     </CSSTransition>
   </TransitionGroup>

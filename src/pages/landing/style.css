@@ -1,0 +1,194 @@
+/* Import original styles from home, about, and portfolio */
+@import url('../home/style.css');
+@import url('../about/style.css');
+@import url('../portfolio/style.css');
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Industry-specific themes */
+.crypto-theme {
+  --primary-color: #1a1a1a;
+  --secondary-color: #00ff88;
+  --text-color: #ffffff;
+  --text-color-2: #e0e0e0;
+  --text-color-3: #00ff88;
+  --bg-color: #0d0d0d;
+  --overlay-color: rgba(0, 255, 136, 0.9);
+}
+
+.business-theme {
+  --primary-color: #ffffff;
+  --secondary-color: #2563eb;
+  --text-color: #1f2937;
+  --text-color-2: #374151;
+  --text-color-3: #2563eb;
+  --bg-color: #f8fafc;
+  --overlay-color: rgba(37, 99, 235, 0.9);
+}
+
+/* Apply theme to body */
+body.crypto-theme {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body.business-theme {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Section spacing for single page */
+.about-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.portfolio-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* Smooth transitions between themes */
+.transitioning {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Crypto theme specific styles */
+.crypto-theme .intro_sec .h_bg-image {
+  filter: saturate(0.8) contrast(1.2) brightness(0.7);
+}
+
+.crypto-theme .intro_sec .text h1,
+.crypto-theme .intro_sec .text h2 {
+  color: var(--text-color);
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.crypto-theme .intro_sec .text p {
+  color: var(--text-color-2);
+}
+
+.crypto-theme .ac_btn {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  background: transparent;
+}
+
+.crypto-theme .ac_btn:hover {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+.crypto-theme .about-section {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+}
+
+.crypto-theme .portfolio-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+}
+
+/* Business theme specific styles */
+.business-theme .intro_sec .h_bg-image {
+  filter: saturate(1.1) contrast(1.1) brightness(1.1);
+}
+
+.business-theme .intro_sec .text h1,
+.business-theme .intro_sec .text h2 {
+  color: var(--text-color);
+}
+
+.business-theme .intro_sec .text p {
+  color: var(--text-color-2);
+}
+
+.business-theme .ac_btn {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  background: transparent;
+}
+
+.business-theme .ac_btn:hover {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+}
+
+.business-theme .about-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.business-theme .portfolio-section {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+}
+
+/* Button styles for landing page */
+.intro_btn-action .ac_btn {
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+/* Portfolio projects styles */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.project-item {
+  padding: 25px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+  background: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.project-item:hover {
+  border-color: var(--text-color-3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-title {
+  color: var(--text-color-3);
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.project-description {
+  color: var(--text-color-2);
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.project-link {
+  color: var(--text-color-3);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .intro_btn-action .ac_btn {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .project-item {
+    padding: 20px;
+  }
+  
+  .project-title {
+    font-size: 1.1rem;
+  }
+}
