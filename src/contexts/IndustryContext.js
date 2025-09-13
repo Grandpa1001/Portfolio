@@ -15,36 +15,20 @@ export const IndustryProvider = ({ children }) => {
     localStorage.getItem("industry") || "crypto"
   );
   const [isAnimating, setIsAnimating] = useState(false);
-  const [showMatrixRain, setShowMatrixRain] = useState(false);
-  const [showStaircaseTransition, setShowStaircaseTransition] = useState(false);
 
   const changeIndustry = (newIndustry) => {
     if (isAnimating) return;
 
     setIsAnimating(true);
-
-    // Animacje w zależności od kierunku
-    if (newIndustry === "crypto") {
-      // Banking → Web3: Matrix rain animation
-      setShowMatrixRain(true);
-    } else {
-      // Web3 → Banking: Staircase transition animation
-      setShowStaircaseTransition(true);
-    }
-  };
-
-  const handleMatrixComplete = () => {
-    setShowMatrixRain(false);
-    setCurrentIndustry("crypto");
-    localStorage.setItem("industry", "crypto");
-    setIsAnimating(false);
-  };
-
-  const handleStaircaseComplete = () => {
-    setShowStaircaseTransition(false);
-    setCurrentIndustry("business");
-    localStorage.setItem("industry", "business");
-    setIsAnimating(false);
+    
+    // Prosta zmiana industry bez animacji
+    setCurrentIndustry(newIndustry);
+    localStorage.setItem("industry", newIndustry);
+    
+    // Krótkie opóźnienie żeby zapobiec wielokrotnym kliknięciom
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 300);
   };
 
   useEffect(() => {
@@ -56,10 +40,6 @@ export const IndustryProvider = ({ children }) => {
     currentIndustry,
     changeIndustry,
     isAnimating,
-    showMatrixRain,
-    showStaircaseTransition,
-    handleMatrixComplete,
-    handleStaircaseComplete,
   };
 
   return (

@@ -8,9 +8,7 @@ import withRouter from "../hooks/withRouter";
 import AppRoutes from "./routes";
 import Headermain from "../header";
 import AnimatedCursor  from "../hooks/AnimatedCursor";
-import { IndustryProvider, useIndustry } from "../contexts/IndustryContext";
-import MatrixRain from "../components/animations/MatrixRain";
-import StaircaseTransition from "../components/animations/StaircaseTransition";
+import { IndustryProvider } from "../contexts/IndustryContext";
 import "./App.css";
 
 function _ScrollToTop(props) {
@@ -23,13 +21,6 @@ function _ScrollToTop(props) {
 const ScrollToTop = withRouter(_ScrollToTop);
 
 const AppContent = () => {
-  const { 
-    showMatrixRain, 
-    showStaircaseTransition,
-    handleMatrixComplete,
-    handleStaircaseComplete
-  } = useIndustry();
-
   return (
     <>
       <div className="cursor__dot">
@@ -46,16 +37,6 @@ const AppContent = () => {
         <Headermain />
         <AppRoutes />
       </ScrollToTop>
-      
-      <MatrixRain
-        isActive={showMatrixRain}
-        onComplete={handleMatrixComplete}
-      />
-      
-      <StaircaseTransition
-        isActive={showStaircaseTransition}
-        onComplete={handleStaircaseComplete}
-      />
     </>
   );
 };
