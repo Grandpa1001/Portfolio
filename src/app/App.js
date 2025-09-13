@@ -8,7 +8,9 @@ import withRouter from "../hooks/withRouter";
 import AppRoutes from "./routes";
 import Headermain from "../header";
 import AnimatedCursor  from "../hooks/AnimatedCursor";
-import { IndustryProvider } from "../contexts/IndustryContext";
+import { IndustryProvider, useIndustry } from "../contexts/IndustryContext";
+import MatrixRain from "../components/animations/MatrixRain";
+import StaircaseTransition from "../components/animations/StaircaseTransition";
 import "./App.css";
 
 function _ScrollToTop(props) {
@@ -20,6 +22,44 @@ function _ScrollToTop(props) {
 }
 const ScrollToTop = withRouter(_ScrollToTop);
 
+const AppContent = () => {
+  const { 
+    showMatrixRain, 
+    showStaircaseTransition,
+    handleMatrixComplete,
+    handleStaircaseComplete
+  } = useIndustry();
+
+  return (
+    <>
+      <div className="cursor__dot">
+        <AnimatedCursor
+          innerSize={15}
+          outerSize={15}
+          color="255, 255 ,255"
+          outerAlpha={0.4}
+          innerScale={0.7}
+          outerScale={5}
+        />
+      </div>
+      <ScrollToTop>
+        <Headermain />
+        <AppRoutes />
+      </ScrollToTop>
+      
+      <MatrixRain
+        isActive={showMatrixRain}
+        onComplete={handleMatrixComplete}
+      />
+      
+      <StaircaseTransition
+        isActive={showStaircaseTransition}
+        onComplete={handleStaircaseComplete}
+      />
+    </>
+  );
+};
+
 export default function App() {
   return (
     <IndustryProvider>
@@ -30,20 +70,7 @@ export default function App() {
           v7_relativeSplatPath: true
         }}
       >
-        <div className="cursor__dot">
-          <AnimatedCursor
-            innerSize={15}
-            outerSize={15}
-            color="255, 255 ,255"
-            outerAlpha={0.4}
-            innerScale={0.7}
-            outerScale={5}
-          />
-        </div>
-        <ScrollToTop>
-          <Headermain />
-          <AppRoutes />
-        </ScrollToTop>
+        <AppContent />
       </Router>
     </IndustryProvider>
   );
