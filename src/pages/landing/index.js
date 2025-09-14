@@ -5,9 +5,15 @@ import Typewriter from "typewriter-effect";
 import { Container, Row, Col } from "react-bootstrap";
 import {
   industryContent,
-  dataportfolio,
 } from "../../content_option";
 import { useIndustry } from "../../contexts/IndustryContext";
+import * as SiIcons from "react-icons/si";
+import GitIcon from "../../components/icons/GitIcon";
+import ReactIcon from "../../components/icons/ReactIcon";
+import FirebaseIcon from "../../components/icons/FirebaseIcon";
+import MacOSIcon from "../../components/icons/MacOSIcon";
+import CursorIcon from "../../components/icons/CursorIcon";
+import VSCodeIcon from "../../components/icons/VSCodeIcon";
 
 export const Landing = () => {
   const { currentIndustry } = useIndustry();
@@ -43,10 +49,13 @@ export const Landing = () => {
       {/* Home Section */}
       <section id="home" className={`home ${isTransitioning ? 'transitioning' : ''}`}>
         <div className="intro_sec d-block d-lg-flex align-items-center">
-          <div
-            className="h_bg-image order-1 order-lg-2 h-100"
-            style={{ backgroundImage: `url(${currentContent.introdata.your_img_url})` }}
-          ></div>
+          <div className="h_bg-image order-1 order-lg-2 d-flex justify-content-center align-items-center">
+            <img 
+              src={currentContent.introdata.your_img_url} 
+              alt={currentContent.introdata.title}
+              className="profile-image"
+            />
+          </div>
           <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center">
             <div className="align-self-center">
               <div className="intro mx-auto">
@@ -107,59 +116,183 @@ export const Landing = () => {
             </Col>
           </Row>
           <Row className="sec_sp">
-            <Col lg="5">
-              <h3 className="color_sec py-4">{currentContent.dataabout.title}</h3>
-            </Col>
-            <Col lg="7" className="d-flex align-items-center">
-              <div>
+            <Col lg="12">
+              <h3 className="color_sec py-4 text-center mb-5">
+                {currentContent.dataabout.title}
+              </h3>
+              <div className="about-content">
                 <p>{currentContent.dataabout.aboutme}</p>
               </div>
             </Col>
           </Row>
+          {currentContent.worktimeline.length > 0 && (
+            <Row className="sec_sp">
+              <Col lg="5">
+                <h3 className="color_sec py-4">Work Timeline</h3>
+              </Col>
+              <Col lg="7">
+                <table className="table caption-top">
+                  <tbody>
+                    {currentContent.worktimeline.map((data, i) => {
+                      return (
+                        <tr key={i}>
+                          <th scope="row">{data.jobtitle}</th>
+                          <td>{data.where}</td>
+                          <td>{data.date}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </Col>
+            </Row>
+          )}
           <Row className="sec_sp">
-            <Col lg="5">
-              <h3 className="color_sec py-4">Work Timeline</h3>
-            </Col>
-            <Col lg="7">
-              <table className="table caption-top">
-                <tbody>
-                  {currentContent.worktimeline.map((data, i) => {
+            <Col lg="12">
+              <h3 className="color_sec py-4 text-center mb-5">
+                {currentContent.skills.title || "Skills"}
+              </h3>
+              {currentContent.skills.technologies ? (
+                <div className="technologies-grid">
+                  {currentContent.skills.technologies.map((tech, index) => {
+                    let IconComponent;
+                    
+                    // Sprawdź czy to nasza własna ikona czy React Icon
+                    if (tech.icon === "GitIcon") {
+                      IconComponent = GitIcon;
+                    } else if (tech.icon === "ReactIcon") {
+                      IconComponent = ReactIcon;
+                    } else if (tech.icon === "FirebaseIcon") {
+                      IconComponent = FirebaseIcon;
+                    } else if (tech.icon === "MacOSIcon") {
+                      IconComponent = MacOSIcon;
+                    } else if (tech.icon === "CursorIcon") {
+                      IconComponent = CursorIcon;
+                    } else if (tech.icon === "VSCodeIcon") {
+                      IconComponent = VSCodeIcon;
+                    } else {
+                      IconComponent = SiIcons[tech.icon];
+                    }
+                    
                     return (
-                      <tr key={i}>
-                        <th scope="row">{data.jobtitle}</th>
-                        <td>{data.where}</td>
-                        <td>{data.date}</td>
-                      </tr>
+                      <div 
+                        key={index} 
+                        className="technology-icon" 
+                        title={`${tech.name}: ${tech.description}`}
+                        data-tooltip={tech.description}
+                      >
+                        <IconComponent />
+                        <div className="tooltip">
+                          <div className="tooltip-title">{tech.name}</div>
+                          <div className="tooltip-description">{tech.description}</div>
+                        </div>
+                      </div>
                     );
                   })}
-                </tbody>
-              </table>
-            </Col>
-          </Row>
-          <Row className="sec_sp">
-            <Col lg="5">
-              <h3 className="color_sec py-4">Skills</h3>
-            </Col>
-            <Col lg="7">
-              {currentContent.skills.map((data, i) => {
-                return (
-                  <div key={i}>
-                    <h3 className="progress-title">{data.name}</h3>
-                    <div className="progress">
-                      <div
-                        className="progress-bar"
-                        style={{
-                          width: `${data.value}%`,
-                        }}
-                      >
-                        <div className="progress-value">{data.value}%</div>
+                </div>
+              ) : (
+                <div className="legacy-skills">
+                  {currentContent.skills.map((data, i) => {
+                    return (
+                      <div key={i}>
+                        <h3 className="progress-title">{data.name}</h3>
+                        <div className="progress">
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `${data.value}%`,
+                            }}
+                          >
+                            <div className="progress-value">{data.value}%</div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                );
-              })}
+                    );
+                  })}
+                </div>
+              )}
             </Col>
           </Row>
+          
+          {/* Tools Section */}
+          {currentContent.tools && currentContent.tools.technologies && (
+            <Row className="sec_sp">
+              <Col lg="12">
+                <h3 className="color_sec py-4 text-center mb-5">
+                  {currentContent.tools.title}
+                </h3>
+                <div className="technologies-grid">
+                  {currentContent.tools.technologies.map((tech, index) => {
+                    let IconComponent;
+                    
+                    // Sprawdź czy to nasza własna ikona czy React Icon
+                    if (tech.icon === "GitIcon") {
+                      IconComponent = GitIcon;
+                    } else if (tech.icon === "ReactIcon") {
+                      IconComponent = ReactIcon;
+                    } else if (tech.icon === "FirebaseIcon") {
+                      IconComponent = FirebaseIcon;
+                    } else if (tech.icon === "MacOSIcon") {
+                      IconComponent = MacOSIcon;
+                    } else if (tech.icon === "CursorIcon") {
+                      IconComponent = CursorIcon;
+                    } else if (tech.icon === "VSCodeIcon") {
+                      IconComponent = VSCodeIcon;
+                    } else {
+                      IconComponent = SiIcons[tech.icon];
+                    }
+                    
+                    return (
+                      <div 
+                        key={index} 
+                        className="technology-icon" 
+                        title={`${tech.name}: ${tech.description}`}
+                        data-tooltip={tech.description}
+                      >
+                        <IconComponent />
+                        <div className="tooltip">
+                          <div className="tooltip-title">{tech.name}</div>
+                          <div className="tooltip-description">{tech.description}</div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </Col>
+            </Row>
+          )}
+          
+          {currentContent.education.length > 0 && (
+            <Row className="sec_sp">
+              <Col lg="5">
+                <h3 className="color_sec py-4">Wykształcenie</h3>
+              </Col>
+              <Col lg="7">
+                <table className="table caption-top">
+                  <tbody>
+                    {currentContent.education.map((data, i) => {
+                      return (
+                        <tr key={i}>
+                          <th scope="row">{data.degree}</th>
+                          <td>{data.school}</td>
+                          <td>{data.date}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+                <div className="mt-3">
+                  {currentContent.education.map((data, i) => {
+                    return (
+                      <div key={i} className="mb-2">
+                        <strong>{data.degree}:</strong> {data.project}
+                      </div>
+                    );
+                  })}
+                </div>
+              </Col>
+            </Row>
+          )}
           <Row className="sec_sp">
             <Col lg="5">
               <h3 className="color_sec py-4">Services</h3>
@@ -189,13 +322,23 @@ export const Landing = () => {
           </Row>
           <Row className="sec_sp">
             <Col lg="12">
-              <div className="projects-list">
-                {dataportfolio.map((data, i) => {
+              <div className="portfolio-grid">
+                {currentContent.portfolio.map((data, i) => {
                   return (
-                    <div key={i} className="project-item">
-                      <h5 className="project-title">{data.title}</h5>
-                      <p className="project-description">{data.description}</p>
-                      <a href={data.link} className="project-link">Zobacz projekt →</a>
+                    <div key={i} className="portfolio-card">
+                      <div className="portfolio-image">
+                        <img src={data.img} alt={data.title} />
+                        <div className="portfolio-overlay">
+                          <h5 className="portfolio-title">{data.title}</h5>
+                          <p className="portfolio-short-desc">{data.shortDescription}</p>
+                          <a href={data.link} className="portfolio-link">Zobacz projekt →</a>
+                        </div>
+                      </div>
+                      <div className="portfolio-content">
+                        <h5 className="portfolio-title">{data.title}</h5>
+                        <p className="portfolio-short-desc">{data.shortDescription}</p>
+                        <p className="portfolio-description">{data.description}</p>
+                      </div>
                     </div>
                   );
                 })}

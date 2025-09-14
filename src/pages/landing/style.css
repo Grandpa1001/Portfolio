@@ -177,6 +177,120 @@ body.business-theme {
   text-decoration: underline;
 }
 
+/* Portfolio Grid Styles */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.portfolio-card {
+  background: var(--primary-color);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-image img {
+  transform: scale(1.1);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  text-align: center;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-overlay .portfolio-title {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.portfolio-overlay .portfolio-short-desc {
+  color: var(--text-color-2);
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.portfolio-link {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.portfolio-link:hover {
+  background: var(--text-color);
+  color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+.portfolio-content {
+  padding: 20px;
+}
+
+.portfolio-content .portfolio-title {
+  color: var(--text-color);
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.portfolio-content .portfolio-short-desc {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.portfolio-content .portfolio-description {
+  color: var(--text-color-2);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .intro_btn-action .ac_btn {
@@ -184,11 +298,320 @@ body.business-theme {
     margin-bottom: 15px;
   }
   
-  .project-item {
-    padding: 20px;
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
   
-  .project-title {
-    font-size: 1.1rem;
+  .portfolio-card {
+    margin-bottom: 20px;
+  }
+  
+  .portfolio-image {
+    height: 180px;
+  }
+  
+  .portfolio-overlay .portfolio-title {
+    font-size: 1.3rem;
+  }
+  
+  .portfolio-content .portfolio-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Profile Image Styles */
+/* Web3 Theme - hooded person image */
+.crypto-theme .h_bg-image {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crypto-theme .h_bg-image img,
+.crypto-theme .profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transform: scale(0.8);
+  transform-origin: center;
+}
+
+/* Banking Theme - business person image */
+.business-theme .h_bg-image {
+  width: 300px !important;
+  height: auto !important;
+  border-radius: 10px !important;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.business-theme .h_bg-image img,
+.business-theme .profile-image {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain;
+  border-radius: 10px !important;
+}
+
+/* Responsive adjustments for profile images */
+@media (max-width: 768px) {
+  .crypto-theme .h_bg-image {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .crypto-theme .h_bg-image img,
+  .crypto-theme .profile-image {
+    transform: scale(0.7);
+  }
+  
+  .business-theme .h_bg-image {
+    width: 180px;
+    height: 180px;
+    max-width: 180px;
+    max-height: 180px;
+  }
+}
+
+/* About Section Styles */
+.about-content {
+  background: var(--primary-color);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-content p {
+  color: var(--text-color-2);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Professional Skillset Styles */
+.technologies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(192px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.technology-icon {
+  width: 192px;
+  height: 192px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-color);
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.technology-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--secondary-color), rgba(255, 255, 255, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.technology-icon:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  border-color: var(--secondary-color);
+}
+
+.technology-icon:hover::before {
+  opacity: 0.1;
+}
+
+.technology-icon svg {
+  font-size: 96px;
+  color: var(--secondary-color);
+  z-index: 1;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.technology-icon:hover svg {
+  color: var(--text-color);
+  transform: scale(1.1);
+}
+
+/* Tooltip Styles */
+.tooltip {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  background: var(--primary-color);
+  color: var(--text-color);
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--secondary-color);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  min-width: 200px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--secondary-color);
+}
+
+.technology-icon:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(calc(100% + 10px));
+}
+
+.tooltip-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+  margin-bottom: 8px;
+}
+
+.tooltip-description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--text-color-2);
+}
+
+/* Legacy skills fallback */
+.legacy-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Responsive adjustments for about section */
+@media (max-width: 768px) {
+  .about-content {
+    padding: 20px;
+    margin: 0 15px;
+  }
+  
+  .about-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Responsive adjustments for technologies */
+@media (max-width: 1200px) {
+  .technologies-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+  }
+  
+  .technology-icon {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .technology-icon svg {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .technologies-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 16px;
+    max-width: 480px;
+  }
+  
+  .technology-icon {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .technology-icon svg {
+    font-size: 64px;
+  }
+  
+  .tooltip {
+    min-width: 120px;
+    max-width: 200px;
+    padding: 10px 12px;
+  }
+  
+  .tooltip-title {
+    font-size: 0.9rem;
+  }
+  
+  .tooltip-description {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .technologies-grid {
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    gap: 12px;
+    max-width: 320px;
+  }
+  
+  .technology-icon {
+    width: 96px;
+    height: 96px;
+  }
+  
+  .technology-icon svg {
+    font-size: 48px;
+  }
+  
+  .tooltip {
+    min-width: 96px;
+    max-width: 160px;
+    padding: 8px 10px;
+  }
+  
+  .tooltip-title {
+    font-size: 0.8rem;
+  }
+  
+  .tooltip-description {
+    font-size: 0.7rem;
   }
 }
