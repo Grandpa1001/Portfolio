@@ -59,7 +59,7 @@ const industryContent = {
                 },
                 { 
                     name: "SQL", 
-                    icon: "SiMysql",
+                    icon: "SQLIcon",
                     description: "Strukturalny język zapytań używany do zarządzania relacyjnymi bazami danych i manipulacji danymi"
                 },
                 { 
@@ -121,46 +121,57 @@ const industryContent = {
         ],
         portfolio: [
             {
-                img: "/assets/images/Wasi_noBackground.png",
+                img: "/assets/images/kanel.webp",
                 title: "KANel",
                 shortDescription: "Katalog Wordpress",
                 description: "Przygotowanie strony do katalogu Wordpress dla firmy KANEL z pełną integracją systemu zarządzania treścią.",
-                link: "#",
+                link: "https://kanel.com.pl/",
             },
             {
-                img: "/assets/images/Wasi_noBackground.png",
+                img: "/assets/images/FlappyBird.webp",
                 title: "Moon Flapy Birds",
                 shortDescription: "Gra Web3",
                 description: "Gra oparta o klasyczny styl flappybird w tematyce web3 z integracją NFT i mechanikami blockchain.",
-                link: "#",
+                link: "https://play.unity.com/en/games/d3bb4e47-5691-4bb1-8a31-e71c3b302f4a/moonflappybird",
             },
             {
-                img: "/assets/images/Wasi_noBackground.png",
+                img: "/assets/images/wpozycz.webp",
                 title: "Wypożyczalnia Marzeń",
                 shortDescription: "E-commerce",
                 description: "Strona, logo, ulotki i pełny ecommerce firmy z systemem rezerwacji i płatności online.",
-                link: "#",
+                link: "",
+                github: "https://github.com/Grandpa1001/Wypozyczalnia-marzen",
             },
             {
-                img: "/assets/images/Wasi_noBackground.png",
+                img: "/assets/images/kolektyw.webp",
                 title: "NFT Polska Collective",
                 shortDescription: "Metaverse",
                 description: "Wizja metaversu i kolektywu w nim umieszczonego. Wygrana praca konkursowa na 'zdefiniuj kolektyw' dla NFT Polska.",
-                link: "#",
+                link: "https://drive.google.com/drive/u/0/folders/1-2yB60eHijGYJa4U7gMTdoAVsDfNIs2S",
             },
             {
-                img: "/assets/images/Wasi_noBackground.png",
+                img: "/assets/images/ThePolak1127.webp",
+                title: "ThePolacy 3D animation",
+                shortDescription: "Website",
+                description: "Animacja 3D na stronie - interaktywna prezentacja z modelami 3D stworzonymi w VoxelEditor i animowanymi w Mixamo.",
+                link: "https://thepolacy1127.pages.dev/",
+                github: "https://github.com/Grandpa1001/ThePolacyShowTime",
+            },
+            {
+                img: "/assets/images/Psiapka.webp",
                 title: "Psiapka",
                 shortDescription: "iOS App",
                 description: "Aplikacja na iOS do zapoznawania ze sobą psiaków z systemem dopasowywania i geolokalizacji.",
-                link: "#",
+                link: "",
+                github: "https://github.com/Grandpa1001/Psiapka",
             },
             {
-                img: "/assets/images/Wasi_noBackground.png",
+                img: "/assets/images/Donly.webp",
                 title: "Donly",
                 shortDescription: "Marketplace",
                 description: "Marketplace na zwiększenie transparentności darowizn z integracją blockchain i systemem weryfikacji.",
-                link: "#",
+                link: "https://donly-stylus.vercel.app/",
+                github: "https://github.com/Grandpa1001/Donly-Stylus",
             },
         ],
     },
@@ -179,7 +190,7 @@ const industryContent = {
                 fifth: "Project Leader",
             },
             description: "Witaj w świecie rozwiązań bankowych! Jestem Senior Ferryt Developerem z wieloletnim doświadczeniem w sektorze bankowym. Specjalizuję się w tworzeniu rozwiązań na platformie Ferryt oraz zarządzaniu zespołami projektowymi.",
-            your_img_url: "/assets/images/profilowe.png",
+            your_img_url: "/assets/images/Kamil.png",
         },
         dataabout: {
             title: "Senior Ferryt Developer",
@@ -190,33 +201,52 @@ const industryContent = {
                 jobtitle: "Menedżer Zespołu Automatyzacji Procesów",
                 where: "BGK",
                 date: "Listopad 2025 – obecnie",
+                logo: "BGKIcon"
             },
             {
                 jobtitle: "Ferryt Developer",
                 where: "Bluesoft",
-                date: "Kwiecień 2023 – obecnie",
+                date: "Kwiecień 2023 – Wrzesień 2025",
+                logo: "BlueSoftIcon"
             },
             {
                 jobtitle: "Analityk systemowy",
                 where: "Pretius",
                 date: "Styczeń 2023 – Wrzesień 2025",
+                logo: "PretiusIcon"
             },
             {
                 jobtitle: "Ferryt Developer",
                 where: "DomData",
                 date: "Luty 2018 – Grudzień 2022",
+                logo: "DomDataIcon"
             },
         ],
-        skills: [
-            { name: "Ferryt 3.3.0+, 4.3.2+, 2.0+", value: 95 },
-            { name: "SQL", value: 90 },
-            { name: "BPMN", value: 88 },
-            { name: "Selenium (C#)", value: 85 },
-            { name: "Playwright (JS)", value: 87 },
-            { name: "React + NodeJS", value: 90 },
-            { name: "ethers.js, web3.js", value: 88 },
-            { name: "podstawy Solidity", value: 75 },
-        ],
+        skills: {
+            title: "Professional Skillset",
+            mainTechnologies: [
+                {
+                    name: "3.3.0+ 4.4.0+",
+                    icon: "/assets/images/ferryt.png",
+                    description: ""
+                },
+                {
+                    name: "2.0+",
+                    icon: "FerrytIcon",
+                    description: ""
+                }
+            ],
+            technologies: [
+                { name: "SQL", icon: "SQLIcon", description: "Strukturalny język zapytań używany do zarządzania relacyjnymi bazami danych i manipulacji danymi" },
+                { name: "BPMN", icon: "SiDiagramsdotnet", description: "Business Process Model and Notation" },
+                { name: "Selenium", icon: "SiSelenium", description: "Web automation testing framework" },
+                { name: ".NET", icon: "SiDotnet", description: "Platforma programistyczna Microsoft do tworzenia aplikacji" },
+                { name: "C#", icon: "SiDotnet", description: "Język programowania obiektowego Microsoft" },
+                { name: "JavaScript", icon: "SiJavascript", description: "Język programowania wysokiego poziomu do tworzenia interaktywnych stron internetowych" },
+                { name: "Jira", icon: "JiraIcon", description: "Narzędzie do zarządzania projektami i śledzenia zadań" },
+                { name: "Redmine", icon: "RedmineIcon", description: "Elastyczne narzędzie do zarządzania projektami open source" }
+            ]
+        },
         education: [
             {
                 degree: "Blockchain: biznes, prawo, technologia",
@@ -360,24 +390,29 @@ const services = [
 ];
 
 const dataportfolio = [{
-        img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
+        img: "/assets/images/kanel.webp",
         description: "KANel - Przygotowanie strony do katalogu Wordpress dla firmy KANEL.",
-        link: "#",
+        link: "https://kanel.com.pl/",
     },
     {
-        img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
+        img: "/assets/images/FlappyBird.webp",
         description: "Moon Flapy Birds - Gra oparta o klasyczny styl flappybird w tematyce web3.",
-        link: "#",
+        link: "https://play.unity.com/en/games/d3bb4e47-5691-4bb1-8a31-e71c3b302f4a/moonflappybird",
     },
     {
-        img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
+        img: "/assets/images/wpozycz.webp",
         description: "Wypożyczalnia Marzeń - Strona, logo, ulotki i pełny ecomerce firmy.",
         link: "#",
     },
     {
-        img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
+        img: "/assets/images/kolektyw.webp",
         description: "NFT Polska Collective - Wizja metaversu i kolektywu w nim umieszczonego.",
-        link: "#",
+        link: "https://drive.google.com/drive/u/0/folders/1-2yB60eHijGYJa4U7gMTdoAVsDfNIs2S",
+    },
+    {
+        img: "/assets/images/ThePolak1127.webp",
+        description: "ThePolacy 3D animation - Animacja 3D na stronie z interaktywnymi modelami.",
+        link: "https://thepolacy1127.pages.dev/",
     },
     {
         img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
@@ -387,7 +422,7 @@ const dataportfolio = [{
     {
         img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
         description: "Donly - Marketplace na zwiększenie transparentności darowizn.",
-        link: "#",
+        link: "https://donly-stylus.vercel.app/",
     },
 ];
 

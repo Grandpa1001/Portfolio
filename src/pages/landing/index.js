@@ -14,6 +14,14 @@ import FirebaseIcon from "../../components/icons/FirebaseIcon";
 import MacOSIcon from "../../components/icons/MacOSIcon";
 import CursorIcon from "../../components/icons/CursorIcon";
 import VSCodeIcon from "../../components/icons/VSCodeIcon";
+import SQLIcon from "../../components/icons/SQLIcon";
+import FerrytIcon from "../../components/icons/FerrytIcon";
+import JiraIcon from "../../components/icons/JiraIcon";
+import RedmineIcon from "../../components/icons/RedmineIcon";
+import DomDataIcon from "../../components/icons/DomDataIcon";
+import PretiusIcon from "../../components/icons/PretiusIcon";
+import BlueSoftIcon from "../../components/icons/BlueSoftIcon";
+import BGKIcon from "../../components/icons/BGKIcon";
 
 export const Landing = () => {
   const { currentIndustry } = useIndustry();
@@ -59,7 +67,17 @@ export const Landing = () => {
           <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center">
             <div className="align-self-center">
               <div className="intro mx-auto">
-                <h2 className="mb-1x">{currentContent.introdata.title}</h2>
+                {currentIndustry === 'crypto' ? (
+                  <div className="logo-container mb-1x">
+                    <img 
+                      src="/assets/images/mgrGraczIntroWhite.svg" 
+                      alt="Logo" 
+                      className="logo-svg"
+                    />
+                  </div>
+                ) : (
+                  <h2 className="mb-1x">{currentContent.introdata.title}</h2>
+                )}
                 <h1 className="fluidz-48 mb-1x">
                   <Typewriter
                     key={currentIndustry}
@@ -125,72 +143,90 @@ export const Landing = () => {
               </div>
             </Col>
           </Row>
-          {currentContent.worktimeline.length > 0 && (
-            <Row className="sec_sp">
-              <Col lg="5">
-                <h3 className="color_sec py-4">Work Timeline</h3>
-              </Col>
-              <Col lg="7">
-                <table className="table caption-top">
-                  <tbody>
-                    {currentContent.worktimeline.map((data, i) => {
-                      return (
-                        <tr key={i}>
-                          <th scope="row">{data.jobtitle}</th>
-                          <td>{data.where}</td>
-                          <td>{data.date}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </Col>
-            </Row>
-          )}
           <Row className="sec_sp">
             <Col lg="12">
               <h3 className="color_sec py-4 text-center mb-5">
                 {currentContent.skills.title || "Skills"}
               </h3>
-              {currentContent.skills.technologies ? (
-                <div className="technologies-grid">
-                  {currentContent.skills.technologies.map((tech, index) => {
-                    let IconComponent;
-                    
-                    // Sprawdź czy to nasza własna ikona czy React Icon
-                    if (tech.icon === "GitIcon") {
-                      IconComponent = GitIcon;
-                    } else if (tech.icon === "ReactIcon") {
-                      IconComponent = ReactIcon;
-                    } else if (tech.icon === "FirebaseIcon") {
-                      IconComponent = FirebaseIcon;
-                    } else if (tech.icon === "MacOSIcon") {
-                      IconComponent = MacOSIcon;
-                    } else if (tech.icon === "CursorIcon") {
-                      IconComponent = CursorIcon;
-                    } else if (tech.icon === "VSCodeIcon") {
-                      IconComponent = VSCodeIcon;
-                    } else {
-                      IconComponent = SiIcons[tech.icon];
-                    }
-                    
-                    return (
-                      <div 
-                        key={index} 
-                        className="technology-icon" 
-                        title={`${tech.name}: ${tech.description}`}
-                        data-tooltip={tech.description}
-                      >
-                        <IconComponent />
-                        <div className="tooltip">
-                          <div className="tooltip-title">{tech.name}</div>
-                          <div className="tooltip-description">{tech.description}</div>
+              {currentContent.skills && (currentContent.skills.mainTechnologies || currentContent.skills.technologies) ? (
+                <div>
+                  {/* Główne technologie - tylko dla Banking */}
+                  {currentContent.skills.mainTechnologies && (
+                    <div className="main-technologies-grid">
+                      {currentContent.skills.mainTechnologies.map((tech, index) => (
+                        <div key={index} className={`main-technology-item ${index === 0 ? 'first-item' : 'second-item'}`}>
+                          {tech.icon.startsWith('/') ? (
+                            <img 
+                              src={tech.icon} 
+                              alt={tech.name}
+                              className="main-technology-image"
+                            />
+                          ) : (
+                            <FerrytIcon size="16em" color="var(--secondary-color)" />
+                          )}
+                          {tech.name && <div className="main-technology-name">{tech.name}</div>}
+                          <div className="main-technology-description">{tech.description}</div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      ))}
+                    </div>
+                  )}
+                  
+                  {/* Małe ikonki - dla Web3 i Banking */}
+                  {currentContent.skills.technologies && (
+                    <div className="technologies-grid">
+                      {currentContent.skills.technologies.map((tech, index) => {
+                        let IconComponent;
+                        
+                        // Sprawdź czy to nasza własna ikona czy React Icon
+                        if (tech.icon === "GitIcon") {
+                          IconComponent = GitIcon;
+                        } else if (tech.icon === "ReactIcon") {
+                          IconComponent = ReactIcon;
+                        } else if (tech.icon === "FirebaseIcon") {
+                          IconComponent = FirebaseIcon;
+                        } else if (tech.icon === "MacOSIcon") {
+                          IconComponent = MacOSIcon;
+                        } else if (tech.icon === "CursorIcon") {
+                          IconComponent = CursorIcon;
+                        } else if (tech.icon === "VSCodeIcon") {
+                          IconComponent = VSCodeIcon;
+                        } else if (tech.icon === "SQLIcon") {
+                          IconComponent = SQLIcon;
+                        } else if (tech.icon === "FerrytIcon") {
+                          IconComponent = FerrytIcon;
+                        } else if (tech.icon === "JiraIcon") {
+                          IconComponent = JiraIcon;
+                        } else if (tech.icon === "RedmineIcon") {
+                          IconComponent = RedmineIcon;
+                        } else {
+                          IconComponent = SiIcons[tech.icon];
+                        }
+                        
+                        // Sprawdź czy komponent istnieje
+                        if (!IconComponent) {
+                          console.error(`Icon component not found for: ${tech.icon}`);
+                          IconComponent = () => <div>❌</div>; // Fallback icon
+                        }
+                        
+                        return (
+                          <div 
+                            key={index} 
+                            className="technology-icon" 
+                            title={`${tech.name}: ${tech.description}`}
+                            data-tooltip={tech.description}
+                          >
+                            <IconComponent />
+                            <div className="tooltip">
+                              <div className="tooltip-title">{tech.name}</div>
+                              <div className="tooltip-description">{tech.description}</div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
-              ) : (
+              ) : currentContent.skills && Array.isArray(currentContent.skills) ? (
                 <div className="legacy-skills">
                   {currentContent.skills.map((data, i) => {
                     return (
@@ -210,7 +246,7 @@ export const Landing = () => {
                     );
                   })}
                 </div>
-              )}
+              ) : null}
             </Col>
           </Row>
           
@@ -236,11 +272,13 @@ export const Landing = () => {
                       IconComponent = MacOSIcon;
                     } else if (tech.icon === "CursorIcon") {
                       IconComponent = CursorIcon;
-                    } else if (tech.icon === "VSCodeIcon") {
-                      IconComponent = VSCodeIcon;
-                    } else {
-                      IconComponent = SiIcons[tech.icon];
-                    }
+                   } else if (tech.icon === "VSCodeIcon") {
+                     IconComponent = VSCodeIcon;
+                   } else if (tech.icon === "SQLIcon") {
+                     IconComponent = SQLIcon;
+                   } else {
+                     IconComponent = SiIcons[tech.icon];
+                   }
                     
                     return (
                       <div 
@@ -257,6 +295,43 @@ export const Landing = () => {
                       </div>
                     );
                   })}
+                </div>
+              </Col>
+            </Row>
+          )}
+          
+          {currentContent.worktimeline.length > 0 && (
+            <Row className="sec_sp">
+              <Col lg="12">
+                <div className="work-timeline-section">
+                  <h3 className="color_sec py-4 text-center">Work Timeline</h3>
+                  <div className="work-timeline-list">
+                    {currentContent.worktimeline.map((data, i) => {
+                      let LogoComponent = null;
+                      if (data.logo === "DomDataIcon") {
+                        LogoComponent = DomDataIcon;
+                      } else if (data.logo === "PretiusIcon") {
+                        LogoComponent = PretiusIcon;
+                      } else if (data.logo === "BlueSoftIcon") {
+                        LogoComponent = BlueSoftIcon;
+                      } else if (data.logo === "BGKIcon") {
+                        LogoComponent = BGKIcon;
+                      }
+                      
+                      return (
+                        <div key={i} className="work-timeline-item">
+                          <div className="work-timeline-logo">
+                            {LogoComponent && <LogoComponent size="8em" color="var(--secondary-color)" />}
+                          </div>
+                          <div className="work-timeline-content">
+                            <div className="work-timeline-company">{data.where}</div>
+                            <div className="work-timeline-position">{data.jobtitle}</div>
+                            <div className="work-timeline-date">{data.date}</div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </Col>
             </Row>
@@ -331,7 +406,19 @@ export const Landing = () => {
                         <div className="portfolio-overlay">
                           <h5 className="portfolio-title">{data.title}</h5>
                           <p className="portfolio-short-desc">{data.shortDescription}</p>
-                          <a href={data.link} className="portfolio-link">Zobacz projekt →</a>
+                          <div className="portfolio-links">
+                            {data.link && data.link !== "" && (
+                              <a href={data.link} className="portfolio-link" target="_blank" rel="noopener noreferrer">
+                                {data.link === "#" ? "Zobacz projekt →" : 
+                                 data.link.includes("drive.google.com") ? "Pobierz →" : "Zobacz stronę →"}
+                              </a>
+                            )}
+                            {data.github && (
+                              <a href={data.github} className="portfolio-link" target="_blank" rel="noopener noreferrer">
+                                GitHub →
+                              </a>
+                            )}
+                          </div>
                         </div>
                       </div>
                       <div className="portfolio-content">

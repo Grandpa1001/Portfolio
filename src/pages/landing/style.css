@@ -21,12 +21,12 @@ html {
 
 .business-theme {
   --primary-color: #ffffff;
-  --secondary-color: #2563eb;
+  --secondary-color: #0E655D;
   --text-color: #1f2937;
   --text-color-2: #374151;
-  --text-color-3: #2563eb;
+  --text-color-3: #0E655D;
   --bg-color: #f8fafc;
-  --overlay-color: rgba(37, 99, 235, 0.9);
+  --overlay-color: rgba(14, 101, 93, 0.9);
 }
 
 /* Apply theme to body */
@@ -114,7 +114,7 @@ body.business-theme {
 .business-theme .ac_btn:hover {
   background: var(--secondary-color);
   color: var(--primary-color);
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 0 20px rgba(14, 101, 93, 0.3);
 }
 
 .business-theme .about-section {
@@ -266,6 +266,14 @@ body.business-theme {
   transform: scale(1.05);
 }
 
+.portfolio-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+
 .portfolio-content {
   padding: 20px;
 }
@@ -347,20 +355,31 @@ body.business-theme {
   height: auto !important;
   border-radius: 10px !important;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   max-width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 20px;
 }
 
 .business-theme .h_bg-image img,
 .business-theme .profile-image {
-  width: 100% !important;
+  width: 90% !important;
   height: auto !important;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 10px !important;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25), 0 0 40px rgba(14, 101, 93, 0.4);
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.business-theme .profile-image:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.35), 0 0 60px rgba(14, 101, 93, 0.6);
+  transform: scale(1.02);
 }
 
 /* Responsive adjustments for profile images */
@@ -383,6 +402,25 @@ body.business-theme {
   }
 }
 
+/* Logo Styles */
+.logo-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-svg {
+  width: auto;
+  height: 2.5rem; /* Taka sama wysokość jak h2 */
+  max-width: 300px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.logo-svg:hover {
+  transform: scale(1.02);
+}
+
 /* About Section Styles */
 .about-content {
   background: var(--primary-color);
@@ -403,6 +441,167 @@ body.business-theme {
 }
 
 /* Professional Skillset Styles */
+.main-technologies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-technology-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  justify-content: space-between;
+  min-height: 300px;
+}
+
+.main-technology-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 1);
+  border-color: var(--secondary-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.main-technology-image {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  margin: auto;
+}
+
+.main-technology-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-top: auto;
+  margin-bottom: 0;
+  background: rgba(14, 101, 93, 0.1);
+  padding: 8px 16px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.main-technology-description {
+  font-size: 0.9rem;
+  color: var(--text-color-2);
+  line-height: 1.4;
+}
+
+.main-technology-description:empty {
+  display: none;
+}
+
+/* Pierwszy kafelek - logo wycentrowane z przesunięciem w dół, tekst na dole */
+.main-technology-item.first-item {
+  justify-content: space-between;
+}
+
+.main-technology-item.first-item .main-technology-image {
+  margin: auto;
+  transform: translateY(10px);
+}
+
+/* Drugi kafelek - logo wycentrowane, tekst na dole */
+.main-technology-item.second-item {
+  justify-content: space-between;
+}
+
+/* Work Timeline Styles */
+.work-timeline-section {
+  text-align: center;
+}
+
+.work-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.work-timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.work-timeline-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.work-timeline-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+}
+
+.work-timeline-content {
+  flex: 1;
+  text-align: left;
+}
+
+.work-timeline-company {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 0.25rem;
+}
+
+.work-timeline-position {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+.work-timeline-date {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+/* Responsive Work Timeline */
+@media (max-width: 768px) {
+  .work-timeline-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .work-timeline-content {
+    text-align: center;
+  }
+  
+  .work-timeline-logo {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.main-technology-item.second-item .main-technology-image {
+  margin: auto;
+}
+
 .technologies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(192px, 1fr));
@@ -524,6 +723,21 @@ body.business-theme {
   gap: 20px;
 }
 
+/* Responsive adjustments for logo */
+@media (max-width: 768px) {
+  .logo-svg {
+    height: 2rem;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-svg {
+    height: 1.75rem;
+    max-width: 200px;
+  }
+}
+
 /* Responsive adjustments for about section */
 @media (max-width: 768px) {
   .about-content {
@@ -538,6 +752,26 @@ body.business-theme {
 
 /* Responsive adjustments for technologies */
 @media (max-width: 1200px) {
+  .main-technologies-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 600px;
+  }
+  
+  .main-technology-item {
+    padding: 25px;
+    min-height: 250px;
+  }
+  
+  .main-technology-image {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .main-technology-name {
+    font-size: 1rem;
+  }
+  
   .technologies-grid {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 20px;
@@ -555,6 +789,30 @@ body.business-theme {
 }
 
 @media (max-width: 768px) {
+  .main-technologies-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+  }
+  
+  .main-technology-item {
+    padding: 20px;
+    min-height: 200px;
+  }
+  
+  .main-technology-image {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .main-technology-name {
+    font-size: 0.9rem;
+  }
+  
+  .main-technology-description {
+    font-size: 0.85rem;
+  }
+  
   .technologies-grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 16px;
@@ -586,6 +844,29 @@ body.business-theme {
 }
 
 @media (max-width: 480px) {
+  .main-technologies-grid {
+    gap: 15px;
+    max-width: 300px;
+  }
+  
+  .main-technology-item {
+    padding: 15px;
+    min-height: 180px;
+  }
+  
+  .main-technology-image {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .main-technology-name {
+    font-size: 0.8rem;
+  }
+  
+  .main-technology-description {
+    font-size: 0.8rem;
+  }
+  
   .technologies-grid {
     grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
     gap: 12px;
