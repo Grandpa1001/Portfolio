@@ -21,12 +21,12 @@ html {
 
 .business-theme {
   --primary-color: #ffffff;
-  --secondary-color: #0E655D;
+  --secondary-color: #1e40af;
   --text-color: #1f2937;
   --text-color-2: #374151;
-  --text-color-3: #0E655D;
+  --text-color-3: #1e40af;
   --bg-color: #f8fafc;
-  --overlay-color: rgba(14, 101, 93, 0.9);
+  --overlay-color: rgba(30, 64, 175, 0.9);
 }
 
 /* Apply theme to body */
@@ -114,7 +114,7 @@ body.business-theme {
 .business-theme .ac_btn:hover {
   background: var(--secondary-color);
   color: var(--primary-color);
-  box-shadow: 0 0 20px rgba(14, 101, 93, 0.3);
+  box-shadow: 0 0 20px rgba(30, 64, 175, 0.3);
 }
 
 .business-theme .about-section {
@@ -371,34 +371,132 @@ body.business-theme {
   object-fit: cover;
   border-radius: 10px !important;
   border: 3px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25), 0 0 40px rgba(14, 101, 93, 0.4);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25), 0 0 40px rgba(30, 64, 175, 0.4);
   transition: all 0.3s ease;
   margin: 0 auto;
 }
 
 .business-theme .profile-image:hover {
   border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 35px rgba(0, 0, 0, 0.35), 0 0 60px rgba(14, 101, 93, 0.6);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.35), 0 0 60px rgba(30, 64, 175, 0.6);
   transform: scale(1.02);
 }
 
 /* Responsive adjustments for profile images */
 @media (max-width: 768px) {
   .crypto-theme .h_bg-image {
-    width: 200px;
-    height: 200px;
+    width: 200px; /* Zmienione na 200px */
+    height: 200px; /* Zmienione na 200px */
+    min-height: 300px; /* Dodano minimum wysokość 300px */
   }
   
   .crypto-theme .h_bg-image img,
   .crypto-theme .profile-image {
-    transform: scale(0.7);
+    transform: scale(1); /* Usunięto skalowanie */
   }
   
   .business-theme .h_bg-image {
-    width: 180px;
-    height: 180px;
-    max-width: 180px;
-    max-height: 180px;
+    width: 200px; /* Zmienione na 200px */
+    height: 200px; /* Zmienione na 200px */
+    max-width: 200px;
+    max-height: 200px;
+    min-height: 400px !important; /* Zmienione na 400px */
+  }
+  
+  /* Dostosowanie layoutu intro_sec na mobile */
+  .intro_sec {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 20px 0;
+  }
+  
+  .intro_sec .text,
+  .intro_sec .h_bg-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .intro_sec .h_bg-image {
+    order: 1;
+    margin-bottom: 20px;
+  }
+  
+  .intro_sec .text {
+    order: 2;
+  }
+  
+  .intro_sec .intro {
+    max-width: 100%;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  .intro_sec .intro h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .intro_sec .intro h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .intro_sec .intro p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .intro_btn-action {
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .crypto-theme .h_bg-image {
+    width: 200px;
+    height: 200px;
+    min-height: 300px; /* Dodano minimum wysokość 300px */
+  }
+  
+  .business-theme .h_bg-image {
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    min-height: 400px !important; /* Zmienione na 400px */
+  }
+  
+  .intro_sec {
+    padding: 15px 0;
+  }
+  
+  .intro_sec .intro {
+    padding: 0 15px;
+  }
+  
+  .intro_sec .intro h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .intro_sec .intro h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .intro_sec .intro p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .intro_btn-action {
+    padding-bottom: 15px;
+  }
+  
+  .intro_sec .h_bg-image {
+    margin-bottom: 15px;
   }
 }
 
@@ -486,7 +584,7 @@ body.business-theme {
   color: #1f2937;
   margin-top: auto;
   margin-bottom: 0;
-  background: rgba(14, 101, 93, 0.1);
+  background: rgba(30, 64, 175, 0.1);
   padding: 8px 16px;
   border-radius: 12px;
   backdrop-filter: blur(10px);
@@ -660,6 +758,11 @@ body.business-theme {
   transition: all 0.3s ease;
 }
 
+/* C# icon - większy rozmiar */
+.technology-icon svg[data-icon="csharp"] {
+  font-size: 288px; /* 3x większy */
+}
+
 .technology-icon:hover svg {
   color: var(--text-color);
   transform: scale(1.05);
@@ -743,12 +846,80 @@ body.business-theme {
 /* Responsive adjustments for about section */
 @media (max-width: 768px) {
   .about-content {
-    padding: 20px;
-    margin: 0 15px;
+    padding: 15px;
+    margin: 0 10px;
   }
   
   .about-content p {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .intro_sec {
+    padding: 20px 0;
+  }
+  
+  .intro h1 {
+    font-size: 2rem;
+  }
+  
+  .intro h2 {
+    font-size: 1.5rem;
+  }
+  
+  .intro p {
+    font-size: 0.9rem;
+  }
+  
+  /* Section spacing */
+  .sec_sp {
+    padding: 40px 0;
+  }
+  
+  /* Better touch targets */
+  .contact-icon,
+  .social-icon {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    padding: 10px;
+    margin: 0 5px;
+  }
+  
+  .about-content p {
+    font-size: 0.8rem;
+  }
+  
+  .intro_sec {
+    padding: 15px 0;
+  }
+  
+  .intro h1 {
+    font-size: 1.5rem;
+  }
+  
+  .intro h2 {
+    font-size: 1.2rem;
+  }
+  
+  .intro p {
+    font-size: 0.8rem;
+  }
+  
+  /* Section spacing */
+  .sec_sp {
+    padding: 30px 0;
+  }
+  
+  /* Better touch targets */
+  .contact-icon,
+  .social-icon {
+    min-width: 40px;
+    min-height: 40px;
   }
 }
 
@@ -828,7 +999,7 @@ body.business-theme {
 
 .portfolio-category {
   display: inline-block;
-  background: rgba(14, 101, 93, 0.2);
+  background: rgba(30, 64, 175, 0.2);
   color: var(--secondary-color);
   padding: 4px 12px;
   border-radius: 20px;
@@ -979,27 +1150,59 @@ body.business-theme {
 
 @media (max-width: 768px) {
   .main-technologies-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 160px); /* 2 kolumny po 160px */
     gap: 16px;
-    max-width: 320px;
+    max-width: 336px; /* 2x160px + gap */
+    justify-content: center; /* Wycentrowanie */
   }
   
   .main-technology-item {
-    padding: 20px;
-    min-height: 200px;
+    padding: 12px; /* Zmniejszony padding */
+    min-height: 160px; /* Kwadrat 160px */
+    width: 160px; /* Kwadrat 160px */
   }
   
   .main-technology-image {
-    width: 140px;
-    height: 140px;
+    width: 100px; /* Dostosowane dla kwadratu 160px */
+    height: 100px; /* Dostosowane dla kwadratu 160px */
   }
   
   .main-technology-name {
-    font-size: 0.9rem;
+    font-size: 0.8rem; /* Dostosowany font */
   }
   
   .main-technology-description {
-    font-size: 0.85rem;
+    font-size: 0.7rem; /* Dostosowany font */
+  }
+  
+  /* Naprawka dla first-item i second-item na mobile */
+  .main-technology-item.first-item,
+  .main-technology-item.second-item {
+    width: 160px !important;
+    min-height: 160px !important;
+    height: 160px !important;
+    justify-content: center !important;
+    padding: 12px !important;
+  }
+  
+  .main-technology-item.first-item .main-technology-image {
+    margin: 0 auto !important;
+    transform: none !important;
+    width: 110px !important; /* Zwiększone o 10% */
+    height: 110px !important; /* Zwiększone o 10% */
+  }
+  
+  .main-technology-item.second-item .main-technology-image {
+    margin: 0 auto !important;
+    transform: none !important;
+    width: 100px !important;
+    height: 100px !important;
+  }
+  
+  /* SVG FerrytIcon dla drugiego kafla na mobile */
+  .main-technology-item.second-item svg {
+    width: 8em !important;
+    height: 8em !important;
   }
   
   .technologies-grid {
@@ -1017,6 +1220,11 @@ body.business-theme {
     font-size: 64px;
   }
   
+  /* C# icon - większy rozmiar na mobile */
+  .technology-icon svg[data-icon="csharp"] {
+    font-size: 192px; /* 3x większy na mobile */
+  }
+  
   .tooltip {
     min-width: 120px;
     max-width: 200px;
@@ -1032,45 +1240,110 @@ body.business-theme {
   }
   
   .portfolio-card-banking {
-    padding: 16px;
+    padding: 12px;
   }
   
   .portfolio-card-header .portfolio-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .portfolio-category {
-    font-size: 0.8rem;
-    padding: 3px 10px;
+    font-size: 0.7rem;
+    padding: 2px 8px;
   }
   
   .portfolio-card-content .portfolio-description {
+    font-size: 0.8rem;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  /* Experience and Education sections */
+  .experience-section,
+  .education-section {
+    padding: 20px 15px;
+  }
+  
+  .experience-item,
+  .education-item {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .experience-title,
+  .education-title {
+    font-size: 1rem;
+  }
+  
+  .experience-company,
+  .education-degree {
     font-size: 0.9rem;
+  }
+  
+  .experience-date,
+  .education-date {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .main-technologies-grid {
+    grid-template-columns: repeat(2, 160px); /* 2 kolumny po 160px */
     gap: 12px;
-    max-width: 240px;
+    max-width: 332px; /* 2x160px + gap */
+    justify-content: center; /* Wycentrowanie */
   }
   
   .main-technology-item {
-    padding: 15px;
-    min-height: 180px;
+    padding: 10px; /* Jeszcze mniejszy padding */
+    min-height: 160px; /* Kwadrat 160px */
+    width: 160px; /* Kwadrat 160px */
   }
   
   .main-technology-image {
-    width: 120px;
-    height: 120px;
+    width: 90px; /* Dostosowane dla mniejszych ekranów */
+    height: 90px; /* Dostosowane dla mniejszych ekranów */
   }
   
   .main-technology-name {
-    font-size: 0.8rem;
+    font-size: 0.75rem; /* Dostosowany font */
   }
   
   .main-technology-description {
-    font-size: 0.8rem;
+    font-size: 0.7rem; /* Dostosowany font */
+  }
+  
+  /* Naprawka dla first-item i second-item na mobile 480px */
+  .main-technology-item.first-item,
+  .main-technology-item.second-item {
+    width: 160px !important;
+    min-height: 160px !important;
+    height: 160px !important;
+    justify-content: center !important;
+    padding: 10px !important;
+  }
+  
+  .main-technology-item.first-item .main-technology-image {
+    margin: 0 auto !important;
+    transform: none !important;
+    width: 99px !important; /* Zwiększone o 10% */
+    height: 99px !important; /* Zwiększone o 10% */
+  }
+  
+  .main-technology-item.second-item .main-technology-image {
+    margin: 0 auto !important;
+    transform: none !important;
+    width: 90px !important;
+    height: 90px !important;
+  }
+  
+  /* SVG FerrytIcon dla drugiego kafla na mobile 480px */
+  .main-technology-item.second-item svg {
+    width: 8em !important;
+    height: 8em !important;
   }
   
   .technologies-grid {
@@ -1088,6 +1361,11 @@ body.business-theme {
     font-size: 48px;
   }
   
+  /* C# icon - większy rozmiar na mobile 480px */
+  .technology-icon svg[data-icon="csharp"] {
+    font-size: 144px; /* 3x większy na mobile 480px */
+  }
+  
   .tooltip {
     min-width: 96px;
     max-width: 160px;
@@ -1099,6 +1377,33 @@ body.business-theme {
   }
   
   .tooltip-description {
+    font-size: 0.7rem;
+  }
+  
+  /* Experience and Education sections */
+  .experience-section,
+  .education-section {
+    padding: 15px 10px;
+  }
+  
+  .experience-item,
+  .education-item {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .experience-title,
+  .education-title {
+    font-size: 0.9rem;
+  }
+  
+  .experience-company,
+  .education-degree {
+    font-size: 0.8rem;
+  }
+  
+  .experience-date,
+  .education-date {
     font-size: 0.7rem;
   }
 }

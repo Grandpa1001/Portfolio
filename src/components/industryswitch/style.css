@@ -97,25 +97,56 @@
   }
   
   .industry-switch {
-    min-width: 100px;
+    min-width: 140px; /* Zmniejszone o 30% z 200px */
     height: 45px;
   }
   
   .switch-handle {
     width: 38px;
     height: 38px;
+    transform: translateY(-2px); /* Przesunięte o 2px w górę */
   }
   
   .switch-slider.switched .switch-handle {
-    transform: translateX(58px);
+    transform: translateX(94px) translateY(-2px); /* Przesunięte o 4px w lewo + przesunięcie w górę */
   }
   
   .switch-labels {
     font-size: 11px;
-    padding: 0 10px;
+    padding: 0 14px; /* Dostosowane padding */
   }
   
   .switch-icon {
-    font-size: 14px;
+    font-size: 16px; /* Zwiększona ikona */
+  }
+}
+
+@media (max-width: 480px) {
+  .industry-switch-container {
+    margin-right: 5px;
+  }
+  
+  .industry-switch {
+    min-width: 112px; /* Zmniejszone o 30% z 160px */
+    height: 35px;
+  }
+  
+  .switch-handle {
+    width: 30px;
+    height: 30px;
+    transform: translateY(-2px); /* Przesunięte o 2px w górę */
+  }
+  
+  .switch-slider.switched .switch-handle {
+    transform: translateX(74px) translateY(-2px); /* Przesunięte o 4px w lewo + przesunięcie w górę */
+  }
+  
+  .switch-labels {
+    font-size: 9px;
+    padding: 0 11px; /* Dostosowane padding */
+  }
+  
+  .switch-icon {
+    font-size: 14px; /* Zwiększona ikona */
   }
 }

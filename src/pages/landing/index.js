@@ -18,6 +18,7 @@ import SQLIcon from "../../components/icons/SQLIcon";
 import FerrytIcon from "../../components/icons/FerrytIcon";
 import JiraIcon from "../../components/icons/JiraIcon";
 import RedmineIcon from "../../components/icons/RedmineIcon";
+import CSharpIcon from "../../components/icons/CSharpIcon";
 import CompaniesWorkedWith from "../../components/CompaniesWorkedWith";
 
 export const Landing = () => {
@@ -159,7 +160,7 @@ export const Landing = () => {
                               className="main-technology-image"
                             />
                           ) : (
-                            <FerrytIcon size="16em" color="var(--secondary-color)" />
+                            <FerrytIcon size="16em" color="#0E655D" />
                           )}
                           {tech.name && <div className="main-technology-name">{tech.name}</div>}
                           <div className="main-technology-description">{tech.description}</div>
@@ -195,6 +196,8 @@ export const Landing = () => {
                           IconComponent = JiraIcon;
                         } else if (tech.icon === "RedmineIcon") {
                           IconComponent = RedmineIcon;
+                        } else if (tech.icon === "CSharpIcon") {
+                          IconComponent = CSharpIcon;
                         } else {
                           IconComponent = SiIcons[tech.icon];
                         }

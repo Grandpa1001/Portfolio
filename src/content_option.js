@@ -265,7 +265,7 @@ const industryContent = {
                 { name: "BPMN", icon: "SiDiagramsdotnet", description: "Business Process Model and Notation" },
                 { name: "Selenium", icon: "SiSelenium", description: "Web automation testing framework" },
                 { name: ".NET", icon: "SiDotnet", description: "Platforma programistyczna Microsoft do tworzenia aplikacji" },
-                { name: "C#", icon: "SiDotnet", description: "Język programowania obiektowego Microsoft" },
+                { name: "C#", icon: "CSharpIcon", description: "Język programowania obiektowego Microsoft" },
                 { name: "JavaScript", icon: "SiJavascript", description: "Język programowania wysokiego poziomu do tworzenia interaktywnych stron internetowych" },
                 { name: "Jira", icon: "JiraIcon", description: "Narzędzie do zarządzania projektami i śledzenia zadań" },
                 { name: "Redmine", icon: "RedmineIcon", description: "Elastyczne narzędzie do zarządzania projektami open source" }
