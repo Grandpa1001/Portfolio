@@ -18,10 +18,7 @@ import SQLIcon from "../../components/icons/SQLIcon";
 import FerrytIcon from "../../components/icons/FerrytIcon";
 import JiraIcon from "../../components/icons/JiraIcon";
 import RedmineIcon from "../../components/icons/RedmineIcon";
-import DomDataIcon from "../../components/icons/DomDataIcon";
-import PretiusIcon from "../../components/icons/PretiusIcon";
-import BlueSoftIcon from "../../components/icons/BlueSoftIcon";
-import BGKIcon from "../../components/icons/BGKIcon";
+import CompaniesWorkedWith from "../../components/CompaniesWorkedWith";
 
 export const Landing = () => {
   const { currentIndustry } = useIndustry();
@@ -135,18 +132,18 @@ export const Landing = () => {
           </Row>
           <Row className="sec_sp">
             <Col lg="12">
-              <h3 className="color_sec py-4 text-center mb-5">
+              <h3 className="color_sec py-4 text-center">
                 {currentContent.dataabout.title}
               </h3>
-              <div className="about-content">
+              <div className="about-content-card">
                 <p>{currentContent.dataabout.aboutme}</p>
               </div>
             </Col>
           </Row>
           <Row className="sec_sp">
             <Col lg="12">
-              <h3 className="color_sec py-4 text-center mb-5">
-                {currentContent.skills.title || "Skills"}
+              <h3 className="color_sec py-4 text-center">
+                Umiejętności
               </h3>
               {currentContent.skills && (currentContent.skills.mainTechnologies || currentContent.skills.technologies) ? (
                 <div>
@@ -204,7 +201,6 @@ export const Landing = () => {
                         
                         // Sprawdź czy komponent istnieje
                         if (!IconComponent) {
-                          console.error(`Icon component not found for: ${tech.icon}`);
                           IconComponent = () => <div>❌</div>; // Fallback icon
                         }
                         
@@ -254,7 +250,7 @@ export const Landing = () => {
           {currentContent.tools && currentContent.tools.technologies && (
             <Row className="sec_sp">
               <Col lg="12">
-                <h3 className="color_sec py-4 text-center mb-5">
+                <h3 className="color_sec py-4 text-center">
                   {currentContent.tools.title}
                 </h3>
                 <div className="technologies-grid">
@@ -300,67 +296,36 @@ export const Landing = () => {
             </Row>
           )}
           
-          {currentContent.worktimeline.length > 0 && (
-            <Row className="sec_sp">
-              <Col lg="12">
-                <div className="work-timeline-section">
-                  <h3 className="color_sec py-4 text-center">Work Timeline</h3>
-                  <div className="work-timeline-list">
-                    {currentContent.worktimeline.map((data, i) => {
-                      let LogoComponent = null;
-                      if (data.logo === "DomDataIcon") {
-                        LogoComponent = DomDataIcon;
-                      } else if (data.logo === "PretiusIcon") {
-                        LogoComponent = PretiusIcon;
-                      } else if (data.logo === "BlueSoftIcon") {
-                        LogoComponent = BlueSoftIcon;
-                      } else if (data.logo === "BGKIcon") {
-                        LogoComponent = BGKIcon;
-                      }
-                      
-                      return (
-                        <div key={i} className="work-timeline-item">
-                          <div className="work-timeline-logo">
-                            {LogoComponent && <LogoComponent size="8em" color="var(--secondary-color)" />}
-                          </div>
-                          <div className="work-timeline-content">
-                            <div className="work-timeline-company">{data.where}</div>
-                            <div className="work-timeline-position">{data.jobtitle}</div>
-                            <div className="work-timeline-date">{data.date}</div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          )}
+        {currentContent.worktimeline.length > 0 && (
+          <Row className="sec_sp">
+            <Col lg="12">
+              <CompaniesWorkedWith companies={currentContent.worktimeline} />
+            </Col>
+          </Row>
+        )}
           
           {currentContent.education.length > 0 && (
             <Row className="sec_sp">
-              <Col lg="5">
-                <h3 className="color_sec py-4">Wykształcenie</h3>
+              <Col lg="12">
+                <h3 className="color_sec py-4 text-center">Wykształcenie</h3>
               </Col>
-              <Col lg="7">
-                <table className="table caption-top">
-                  <tbody>
-                    {currentContent.education.map((data, i) => {
-                      return (
-                        <tr key={i}>
-                          <th scope="row">{data.degree}</th>
-                          <td>{data.school}</td>
-                          <td>{data.date}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-                <div className="mt-3">
+            </Row>
+          )}
+          {currentContent.education.length > 0 && (
+            <Row className="sec_sp">
+              <Col lg="12">
+                <div className="education-grid">
                   {currentContent.education.map((data, i) => {
                     return (
-                      <div key={i} className="mb-2">
-                        <strong>{data.degree}:</strong> {data.project}
+                      <div key={i} className="education-item">
+                        <div className="education-header">
+                          <h4 className="education-degree">{data.degree}</h4>
+                          <span className="education-date">{data.date}</span>
+                        </div>
+                        <div className="education-school">{data.school}</div>
+                        <div className="education-project">
+                          <strong>Projekt:</strong> {data.project}
+                        </div>
                       </div>
                     );
                   })}
@@ -368,21 +333,6 @@ export const Landing = () => {
               </Col>
             </Row>
           )}
-          <Row className="sec_sp">
-            <Col lg="5">
-              <h3 className="color_sec py-4">Services</h3>
-            </Col>
-            <Col lg="7">
-              {currentContent.services.map((data, i) => {
-                return (
-                  <div className="service_ py-4" key={i}>
-                    <h5 className="service__title">{data.title}</h5>
-                    <p className="service_desc">{data.description}</p>
-                  </div>
-                );
-              })}
-            </Col>
-          </Row>
         </Container>
       </section>
 
@@ -391,7 +341,7 @@ export const Landing = () => {
         <Container className="About-header">
           <Row className="mb-5 mt-3 pt-md-3">
             <Col lg="8">
-              <h1 className="display-4 mb-4"> Portfolio </h1>
+              <h1 className="display-4 mb-4"> Doświadczenie w procesach </h1>
               <hr className="t_border my-4 ml-0 text-left" />
             </Col>
           </Row>
@@ -399,6 +349,22 @@ export const Landing = () => {
             <Col lg="12">
               <div className="portfolio-grid">
                 {currentContent.portfolio.map((data, i) => {
+                  // Banking industry - card format
+                  if (currentIndustry === "business") {
+                    return (
+                      <div key={i} className="portfolio-card-banking">
+                        <div className="portfolio-card-header">
+                          <h5 className="portfolio-title">{data.title}</h5>
+                          <span className="portfolio-category">{data.category}</span>
+                        </div>
+                        <div className="portfolio-card-content">
+                          <p className="portfolio-description">{data.description}</p>
+                        </div>
+                      </div>
+                    );
+                  }
+                  
+                  // Web3 industry - original format with images
                   return (
                     <div key={i} className="portfolio-card">
                       <div className="portfolio-image">

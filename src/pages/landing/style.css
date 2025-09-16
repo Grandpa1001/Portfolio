@@ -443,10 +443,10 @@ body.business-theme {
 /* Professional Skillset Styles */
 .main-technologies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  margin-bottom: 60px;
-  max-width: 800px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+  margin-bottom: 48px;
+  max-width: 640px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -457,19 +457,20 @@ body.business-theme {
   align-items: center;
   text-align: center;
   padding: 30px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   justify-content: space-between;
   min-height: 300px;
 }
 
 .main-technology-item:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 1);
-  border-color: var(--secondary-color);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .main-technology-image {
@@ -618,11 +619,11 @@ body.business-theme {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--primary-color);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  border: 2px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -641,9 +642,10 @@ body.business-theme {
 }
 
 .technology-icon:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-  border-color: var(--secondary-color);
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .technology-icon:hover::before {
@@ -660,7 +662,7 @@ body.business-theme {
 
 .technology-icon:hover svg {
   color: var(--text-color);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 /* Tooltip Styles */
@@ -750,12 +752,199 @@ body.business-theme {
   }
 }
 
+/* About Content Card Styles */
+.about-content-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.about-content-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.about-content-card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 0;
+}
+
+
+/* Responsive adjustments for about content */
+@media (max-width: 768px) {
+  .about-content-card {
+    padding: 1.5rem;
+    margin-top: 0.75rem;
+  }
+  
+  .about-content-card p {
+    font-size: 1rem;
+  }
+  
+}
+
+/* Banking Portfolio Card Styles */
+.portfolio-card-banking {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card-banking:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-card-header {
+  margin-bottom: 16px;
+}
+
+.portfolio-card-header .portfolio-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.portfolio-category {
+  display: inline-block;
+  background: rgba(14, 101, 93, 0.2);
+  color: var(--secondary-color);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.portfolio-card-content {
+  flex: 1;
+}
+
+.portfolio-card-content .portfolio-description {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Education Styles */
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.education-item {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.education-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.education-degree {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin: 0;
+}
+
+.education-date {
+  font-size: 0.9rem;
+  color: var(--text-color-2);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+}
+
+.education-school {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.education-project {
+  font-size: 1rem;
+  color: var(--text-color-2);
+  line-height: 1.6;
+}
+
+.education-project strong {
+  color: var(--secondary-color);
+}
+
+/* Responsive adjustments for education */
+@media (max-width: 768px) {
+  .education-grid {
+    gap: 1.25rem;
+    margin-top: 0.75rem;
+    max-width: 100%;
+  }
+  
+  .education-item {
+    padding: 1.25rem;
+  }
+  
+  .education-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .education-degree {
+    font-size: 1.1rem;
+  }
+  
+  .education-date {
+    align-self: flex-start;
+  }
+}
+
 /* Responsive adjustments for technologies */
 @media (max-width: 1200px) {
   .main-technologies-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 600px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    max-width: 480px;
   }
   
   .main-technology-item {
@@ -791,8 +980,8 @@ body.business-theme {
 @media (max-width: 768px) {
   .main-technologies-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 400px;
+    gap: 16px;
+    max-width: 320px;
   }
   
   .main-technology-item {
@@ -841,12 +1030,29 @@ body.business-theme {
   .tooltip-description {
     font-size: 0.75rem;
   }
+  
+  .portfolio-card-banking {
+    padding: 16px;
+  }
+  
+  .portfolio-card-header .portfolio-title {
+    font-size: 1.1rem;
+  }
+  
+  .portfolio-category {
+    font-size: 0.8rem;
+    padding: 3px 10px;
+  }
+  
+  .portfolio-card-content .portfolio-description {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
   .main-technologies-grid {
-    gap: 15px;
-    max-width: 300px;
+    gap: 12px;
+    max-width: 240px;
   }
   
   .main-technology-item {

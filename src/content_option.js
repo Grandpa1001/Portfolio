@@ -221,6 +221,30 @@ const industryContent = {
                 date: "Luty 2018 – Grudzień 2022",
                 logo: "DomDataIcon"
             },
+            {
+                jobtitle: "Konsultant IT",
+                where: "ING",
+                date: "2020 – 2021",
+                logo: "INGIcon"
+            },
+            {
+                jobtitle: "Analityk Biznesowy",
+                where: "mBank",
+                date: "2019 – 2020",
+                logo: "MbankIcon"
+            },
+      {
+        jobtitle: "Developer",
+        where: "Velo",
+        date: "2017 – 2018",
+        logo: "VeloIcon"
+      },
+      {
+        jobtitle: "Konsultant IT",
+        where: "BNP Paribas",
+        date: "2016 – 2017",
+        logo: "BNPIcon"
+      },
         ],
         skills: {
             title: "Professional Skillset",
@@ -267,41 +291,46 @@ const industryContent = {
                 project: "Projekt: gra 2D w GameMakerStudio"
             }
         ],
-        services: [
-            {
-                title: "Rozwiązania Ferryt",
-                description: "Tworzenie i wdrażanie rozwiązań na platformie Ferryt dla sektora bankowego z kompleksowym podejściem od analizy po wdrożenie.",
-            },
-            {
-                title: "Zarządzanie Zespołami",
-                description: "Zarządzanie zespołami Ferryt developerów z zapewnieniem wysokiej jakości dostarczanych rozwiązań.",
-            },
-            {
-                title: "Analiza Systemowa",
-                description: "Analiza systemowa rozwiązań BPMN Ferryt z zarządzaniem projektami IT i dokumentacją techniczną.",
-            },
-        ],
         portfolio: [
             {
-                img: "/assets/images/profilowe.png",
                 title: "Proces wydania karty",
-                shortDescription: "Automatyzacja kart",
-                description: "Automatyzacja procesu wydawania kart kredytowych i debetowych z integracją systemów bankowych i weryfikacją klientów.",
-                link: "#",
+                category: "Automatyzacja kart",
+                description: "Kompleksowa automatyzacja procesu wydawania kart kredytowych i debetowych z pełną integracją systemów bankowych, weryfikacją klientów oraz zgodnością z regulacjami PCI DSS.",
             },
             {
-                img: "/assets/images/profilowe.png",
                 title: "Onboarding klienta korpo",
-                shortDescription: "Proces korporacyjny",
-                description: "Kompleksowy proces rejestracji i weryfikacji klientów korporacyjnych z pełną automatyzacją i integracją z systemami KYC.",
-                link: "#",
+                category: "Proces korporacyjny",
+                description: "Zaawansowany proces rejestracji i weryfikacji klientów korporacyjnych z automatyzacją KYC/AML, integracją z rejestrami publicznymi oraz wsparciem dla różnych form prawnych przedsiębiorstw.",
             },
             {
-                img: "/assets/images/profilowe.png",
                 title: "Obsługa zadłużeń",
-                shortDescription: "System windykacji",
-                description: "System zarządzania i windykacji zadłużeń z integracją z systemami scoringowymi i automatyzacją procesów windykacyjnych.",
-                link: "#",
+                category: "System windykacji",
+                description: "Inteligentny system zarządzania i windykacji zadłużeń z integracją systemów scoringowych, automatyzacją procesów windykacyjnych oraz zgodnością z regulacjami konsumenckimi.",
+            },
+            {
+                title: "Proces modyfikacji danych klienta",
+                category: "Dane klienta",
+                description: "Kompleksowy proces aktualizacji danych osobowych klientów dostępny przez bankowość internetową i mobilną, z pełną weryfikacją tożsamości, zgodnością z RODO oraz audytowalnością zmian.",
+            },
+            {
+                title: "Proces wnioskowania o kredyt hipoteczny",
+                category: "Kredyt hipoteczny",
+                description: "Zaawansowany wniosek o kredyt hipoteczny zintegrowany z systemem scoringowym i platformą obsługi kredytów hipotecznych. Dostępny zdalnie, przez bankowość internetową i mobilną z pełną automatyzacją procesu decyzyjnego.",
+            },
+            {
+                title: "Proces założenia konta firmowego",
+                category: "Proces korporacyjny",
+                description: "Kompleksowy proces zakładania kont firmowych obejmujący kartoteki klienta, procedury KYC oraz pełne wsparcie obsługi onboardingu przedsiębiorstw z różnymi formami prawnymi.",
+            },
+            {
+                title: "Platforma pracownicza",
+                category: "Panel pracownika",
+                description: "Zaawansowana platforma backofficowa do pełnej obsługi pracowników banku, zarządzania wnioskami, procesami HR oraz kompleksowej administracji zasobów ludzkich.",
+            },
+            {
+                title: "Wniosek o finansowanie",
+                category: "Proces kredytowy",
+                description: "Uniwersalny system obsługi wniosków o finansowanie obejmujący kredyty detaliczne, leasing oraz wsparcie finansowe z pełną integracją systemów scoringowych i procesów decyzyjnych.",
             },
         ],
     },

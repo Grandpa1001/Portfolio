@@ -1,0 +1,57 @@
+.companies-section {
+  margin: 2rem 0;
+}
+
+.companies-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.companies-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.company-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.company-logo-item:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .companies-table {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .company-logo-item {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .companies-title {
+    font-size: 1.5rem;
+  }
+  
+  .companies-table {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .company-logo-item {
+    padding: 0.5rem;
+  }
+}
