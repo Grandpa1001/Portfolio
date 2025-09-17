@@ -44,7 +44,7 @@ const CompaniesWorkedWith = ({ companies }) => {
               {LogoComponent && (
                 <LogoComponent 
                   size="112px" 
-                  color="var(--secondary-color)" 
+                  color={company.logo === 'DomDataIcon' ? '#0f655d' : 'var(--secondary-color)'} 
                 />
               )}
             </div>

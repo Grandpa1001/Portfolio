@@ -51,6 +51,65 @@ body.business-theme {
   padding-bottom: 80px;
 }
 
+/* BuyCoffee widget - fixed button for Banking */
+.buycoffee-widget {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  display: inline-block;
+}
+
+.buycoffee-widget img {
+  display: block;
+  width: auto;
+  height: 50px; /* PC height */
+  max-width: 100%;
+}
+
+/* Mobile-only BuyCoffee button under Home buttons */
+.buycoffee-mobile {
+  display: none;
+}
+
+.buycoffee-mobile img {
+  width: 156px;
+  height: 40px;
+  filter: sepia(1) hue-rotate(200deg) saturate(3) brightness(0.8) contrast(1.5); /* Lighter background */
+}
+
+@media (max-width: 768px) {
+  .buycoffee-widget {
+    display: none; /* hide fixed widget on mobile */
+  }
+  .buycoffee-widget img {
+    width: auto;
+    height: 40px; /* Not used; widget hidden on mobile */
+  }
+  .buycoffee-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px 0; /* reduced top/bottom margins */
+  }
+}
+
+@media (max-width: 480px) {
+  .buycoffee-widget {
+    display: none; /* hide fixed widget on small mobile */
+  }
+  .buycoffee-widget img {
+    width: auto;
+    height: 40px; /* Not used; widget hidden on mobile */
+  }
+  .buycoffee-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px 0; /* reduced top/bottom margins */
+  }
+}
+
 /* Smooth transitions between themes */
 .transitioning {
   transition: all 0.5s ease-in-out;

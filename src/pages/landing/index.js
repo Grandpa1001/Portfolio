@@ -116,11 +116,43 @@ export const Landing = () => {
                     <div className="ring three"></div>
                   </button>
                 </div>
+                {currentIndustry === 'business' && (
+                  <div className="buycoffee-mobile">
+                    <a 
+                      href="https://buycoffee.to/mgrgracz" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      aria-label="Postaw mi kawę"
+                    >
+                      <img 
+                        src="https://buycoffee.to/img/share-button-white.png" 
+                        alt="Postaw mi kawę na buycoffee.to" 
+                      />
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
       </section>
+      {/* BuyCoffee widget - only for Banking theme (placed at end to allow bottom positioning) */}
+      {currentIndustry === 'business' && (
+        <div className="buycoffee-container">
+          <a 
+            href="https://buycoffee.to/mgrgracz" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="buycoffee-widget"
+            aria-label="Postaw mi kawę"
+          >
+            <img 
+              src="/assets/images/Logo-sygnet.png" 
+              alt="Postaw mi kawę na buycoffee.to" 
+            />
+          </a>
+        </div>
+      )}
 
       {/* About Section */}
       <section id="about" className={`about-section ${isTransitioning ? 'transitioning' : ''}`}>
@@ -131,6 +163,20 @@ export const Landing = () => {
               <hr className="t_border my-4 ml-0 text-left" />
             </Col>
           </Row>
+          {currentIndustry === 'business' && (
+            <a 
+              href="https://buycoffee.to/mgrgracz" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="buycoffee-widget"
+              aria-label="Postaw mi kawę"
+            >
+              <img 
+                src="/assets/images/Logo-sygnet.png" 
+                alt="Postaw mi kawę na buycoffee.to" 
+              />
+            </a>
+          )}
           <Row className="sec_sp">
             <Col lg="12">
               <h3 className="color_sec py-4 text-center">
