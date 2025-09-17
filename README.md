@@ -2,6 +2,9 @@
 
 A modern, responsive portfolio website showcasing professional experience in both Web3 development and banking technology solutions.
 
+<img width="1713" height="888" alt="Zrzut ekranu 2025-09-17 o 10 38 58" src="https://github.com/user-attachments/assets/656d2fa2-0adf-4b6e-99a7-e4958b3bf465" />
+
+
 ## 🌟 Features
 
 - **Dual Industry Focus**: Switch between Web3/Crypto and Banking/Business profiles
