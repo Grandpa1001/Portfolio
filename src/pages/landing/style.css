@@ -75,10 +75,31 @@ body.business-theme {
 .buycoffee-mobile img {
   width: 156px;
   height: 40px;
-  filter: sepia(1) hue-rotate(200deg) saturate(3) brightness(0.8) contrast(1.5); /* Lighter background */
+}
+
+/* Exact colorization overlay to match theme color */
+.buycoffee-mobile {
+  position: relative;
+}
+.buycoffee-mobile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--secondary-color); /* #1e40af */
+  mix-blend-mode: color;
+  pointer-events: none;
+  border-radius: 6px;
 }
 
 @media (max-width: 768px) {
+  /* Reduce spacing under Education header on mobile */
+  .education-header-row h3 {
+    margin-bottom: 6px !important;
+    padding-bottom: 6px !important;
+  }
+  .education-content-row {
+    margin-top: 6px !important;
+  }
   .buycoffee-widget {
     display: none; /* hide fixed widget on mobile */
   }

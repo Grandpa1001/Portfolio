@@ -275,7 +275,7 @@ const industryContent = {
             {
                 degree: "Blockchain: biznes, prawo, technologia",
                 school: "Szkoła Główna Handlowa w Warszawie",
-                date: "2022 – obecnie",
+                date: "2022 – 2023",
                 project: "Projekt: Charity shop z firmą Caruma"
             },
             {

@@ -354,14 +354,14 @@ export const Landing = () => {
         )}
           
           {currentContent.education.length > 0 && (
-            <Row className="sec_sp">
+            <Row className="sec_sp education-header-row">
               <Col lg="12">
                 <h3 className="color_sec py-4 text-center">Wykształcenie</h3>
               </Col>
             </Row>
           )}
           {currentContent.education.length > 0 && (
-            <Row className="sec_sp">
+            <Row className="sec_sp education-content-row">
               <Col lg="12">
                 <div className="education-grid">
                   {currentContent.education.map((data, i) => {
