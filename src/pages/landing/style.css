@@ -80,15 +80,22 @@ body.business-theme {
 /* Exact colorization overlay to match theme color */
 .buycoffee-mobile {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .buycoffee-mobile::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px; /* Dokładnie szerokość obrazka - zmniejszone o 6px */
+  height: 34px; /* Dokładnie wysokość obrazka - zmniejszone o 6px */
   background: var(--secondary-color); /* #1e40af */
   mix-blend-mode: color;
   pointer-events: none;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 
 @media (max-width: 768px) {
